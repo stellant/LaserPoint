@@ -1,0 +1,8 @@
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\obj\x86\Debug\LaserPoint_Keyence.Properties.Resources.resources
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\obj\x86\Debug\LaserPoint_Keyence.csproj.GenerateResource.Cache
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\obj\x86\Debug\LaserPoint_Keyence.Form1.resources
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\bin\Debug\LaserPoint_Keyence.exe
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\bin\Debug\LaserPoint_Keyence.pdb
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\obj\x86\Debug\LaserPoint_Keyence.exe
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\obj\x86\Debug\LaserPoint_Keyence.pdb
+D:\Work\Laserpoint\LaserPoint_Keyence\LaserPoint_Keyence\obj\x86\Debug\LaserPoint_Keyence.csprojResolveAssemblyReference.cache

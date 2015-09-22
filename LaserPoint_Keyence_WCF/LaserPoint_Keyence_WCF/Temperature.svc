@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="LaserPoint_Keyence_WCF.Temperature" CodeBehind="Temperature.svc.cs" %>

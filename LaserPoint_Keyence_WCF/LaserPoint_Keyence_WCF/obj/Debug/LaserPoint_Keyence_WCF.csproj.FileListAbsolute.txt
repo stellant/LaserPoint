@@ -1,0 +1,4 @@
+D:\Work\Laserpoint\LaserPoint_Keyence_WCF\LaserPoint_Keyence_WCF\bin\LaserPoint_Keyence_WCF.dll
+D:\Work\Laserpoint\LaserPoint_Keyence_WCF\LaserPoint_Keyence_WCF\bin\LaserPoint_Keyence_WCF.pdb
+D:\Work\Laserpoint\LaserPoint_Keyence_WCF\LaserPoint_Keyence_WCF\obj\Debug\LaserPoint_Keyence_WCF.dll
+D:\Work\Laserpoint\LaserPoint_Keyence_WCF\LaserPoint_Keyence_WCF\obj\Debug\LaserPoint_Keyence_WCF.pdb
