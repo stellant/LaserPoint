@@ -340,7 +340,14 @@ namespace LaserPoint_Keyence
                 port = comboBox_Ports.SelectedItem.ToString().Trim();
                 baudRate = Convert.ToInt32(textBox_BaudRate.Text.ToString().Trim());
                 WriteText("Serial Port Initializing...\n");
-                serialPort = new SerialPort(port,baudRate);
+                serialPort = new SerialPort(port);
+                serialPort.BaudRate = baudRate;
+                serialPort.Parity = Parity.None;
+                serialPort.StopBits = StopBits.One;
+                serialPort.DataBits = 8;
+                serialPort.Handshake = Handshake.None;
+                serialPort.RtsEnable = true;
+                mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                 WriteText("Serial Port Initialized...\n");
                 WriteText("Serial Port Opening...\n");
                 serialPort.Open();
@@ -355,8 +362,8 @@ namespace LaserPoint_Keyence
                 button_close.Enabled = true;
                 if (!timer1.Enabled)
                 {
-                    timer1.Start();
-                    WriteText("Reading Started...");
+                    //timer1.Start();
+                    //WriteText("Reading Started...");
                 }
             }
             catch (Exception ex)
@@ -379,7 +386,13 @@ namespace LaserPoint_Keyence
                 WriteText("Exception Occured. See the Log File...\n");
             }
         }
-        
+
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort serial = (SerialPort)sender;
+            string data = serial.ReadExisting();
+            WriteText(data);
+        }
       
         /// <summary>
         /// Method executes when disconnect button is clicked
@@ -471,6 +484,7 @@ namespace LaserPoint_Keyence
                         {
                             int byteData = serialPort.ReadByte();
                             data = data + Convert.ToChar(byteData);
+                            count--;
                         }
                     }
                     date = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + "\n";
