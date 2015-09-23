@@ -391,7 +391,21 @@ namespace LaserPoint_Keyence
         {
             SerialPort serial = (SerialPort)sender;
             string data = serial.ReadExisting();
-            WriteText(data);
+            string date = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + "\n";
+            if (radioButton_Individual.Checked)
+            {
+                fileNameNew = fileName.Trim() + "_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + ".csv";
+                filePath = Path.Combine(Path.GetDirectoryName(filePath), fileNameNew);
+                WriteData("Temperature", "TimeStamp");
+                WriteLog("Date will be written to " + filePath + "   at " + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + "\n");
+            }
+            if (radioButton_Combined.Checked)
+            {
+                filePath = Path.Combine(Path.GetDirectoryName(filePath), fileNameNew);
+                WriteLog("Date will be written to " + filePath + "   at " + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + "\n");
+            }
+            WriteData(data, date);
+            WriteText(data + " " + date + "\n");
         }
       
         /// <summary>
