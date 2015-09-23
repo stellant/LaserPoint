@@ -347,7 +347,7 @@ namespace LaserPoint_Keyence
                 serialPort.DataBits = 8;
                 serialPort.Handshake = Handshake.None;
                 serialPort.RtsEnable = true;
-                serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+                //serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                 WriteText("Serial Port Initialized...\n");
                 WriteText("Serial Port Opening...\n");
                 serialPort.Open();
@@ -362,8 +362,8 @@ namespace LaserPoint_Keyence
                 button_close.Enabled = true;
                 if (!timer1.Enabled)
                 {
-                    //timer1.Start();
-                    //WriteText("Reading Started...");
+                    timer1.Start();
+                    WriteText("Reading Started...");
                 }
             }
             catch (Exception ex)
