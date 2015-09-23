@@ -347,7 +347,7 @@ namespace LaserPoint_Keyence
                 serialPort.DataBits = 8;
                 serialPort.Handshake = Handshake.None;
                 serialPort.RtsEnable = true;
-                mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+                serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                 WriteText("Serial Port Initialized...\n");
                 WriteText("Serial Port Opening...\n");
                 serialPort.Open();
