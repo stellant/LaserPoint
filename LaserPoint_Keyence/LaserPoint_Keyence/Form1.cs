@@ -210,7 +210,10 @@ namespace LaserPoint_Keyence
             LoadComboboxPorts();
             textBox_BaudRate.GotFocus+= new System.EventHandler(OnFocusListeningPort);
             textBox_BaudRate.LostFocus += new System.EventHandler(OnLostListeningPort);
+            textBox_Frequency.GotFocus += new System.EventHandler(OnFocusListeningFrequency);
+            textBox_Frequency.LostFocus += new System.EventHandler(OnLostListeningFrequency);
             textBox_BaudRate.Text = "9600";
+            textBox_Frequency.Text = "1";
             radioButton_Individual.Checked = true;
             button_connect.Enabled = false;
             button_close.Enabled = false;
@@ -235,6 +238,27 @@ namespace LaserPoint_Keyence
             if (textBox_BaudRate.Text.Equals(""))
             {
                 textBox_BaudRate.Text = "9600";
+            }
+        }
+        /// <summary>
+        /// Method to execute when text box on focus event occurs
+        /// </summary>
+        /// <param name="Sender">Object</param>
+        /// <param name="e">Event Args</param>
+        private void OnFocusListeningFrequency(object Sender, EventArgs e)
+        {
+            textBox_Frequency.Text = "";
+        }
+        /// <summary>
+        /// Method to execute when text box lost focus event occurs
+        /// </summary>
+        /// <param name="Sender">Object</param>
+        /// <param name="e">Event Args</param>
+        private void OnLostListeningFrequency(object Sender, EventArgs e)
+        {
+            if (textBox_Frequency.Text.Equals(""))
+            {
+                textBox_Frequency.Text = "1";
             }
         }
         /// <summary>
@@ -347,7 +371,6 @@ namespace LaserPoint_Keyence
                 serialPort.DataBits = 8;
                 serialPort.Handshake = Handshake.None;
                 serialPort.RtsEnable = true;
-                //serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                 WriteText("Serial Port Initialized...\n");
                 WriteText("Serial Port Opening...\n");
                 serialPort.Open();
@@ -362,6 +385,7 @@ namespace LaserPoint_Keyence
                 button_close.Enabled = true;
                 if (!timer1.Enabled)
                 {
+                    timer1.Interval = (Convert.ToInt32(textBox_Frequency.Text)*1000);
                     timer1.Start();
                     WriteText("Reading Started...");
                 }
@@ -387,27 +411,6 @@ namespace LaserPoint_Keyence
             }
         }
 
-        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
-            SerialPort serial = (SerialPort)sender;
-            string data = serial.ReadExisting();
-            string date = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + "\n";
-            if (radioButton_Individual.Checked)
-            {
-                fileNameNew = fileName.Trim() + "_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + ".csv";
-                filePath = Path.Combine(Path.GetDirectoryName(filePath), fileNameNew);
-                WriteData("Temperature", "TimeStamp");
-                WriteLog("Date will be written to " + filePath + "   at " + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + "\n");
-            }
-            if (radioButton_Combined.Checked)
-            {
-                filePath = Path.Combine(Path.GetDirectoryName(filePath), fileNameNew);
-                WriteLog("Date will be written to " + filePath + "   at " + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "Tz" + convertTimeZone(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).ToString()) + "\n");
-            }
-            WriteData(data, date);
-            WriteText(data + " " + date + "\n");
-        }
-      
         /// <summary>
         /// Method executes when disconnect button is clicked
         /// </summary>

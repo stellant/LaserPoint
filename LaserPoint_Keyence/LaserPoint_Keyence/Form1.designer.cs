@@ -49,6 +49,9 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox_Frequency = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -62,12 +65,15 @@
             this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Location = new System.Drawing.Point(9, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(628, 110);
+            this.groupBox1.Size = new System.Drawing.Size(628, 129);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.textBox_Frequency);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.comboBox_Ports);
             this.groupBox3.Controls.Add(this.button_FileChoose);
@@ -77,7 +83,7 @@
             this.groupBox3.Controls.Add(this.textBox_BaudRate);
             this.groupBox3.Location = new System.Drawing.Point(6, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(462, 95);
+            this.groupBox3.Size = new System.Drawing.Size(462, 114);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Serial Details";
@@ -101,7 +107,7 @@
             // 
             // button_FileChoose
             // 
-            this.button_FileChoose.Location = new System.Drawing.Point(354, 53);
+            this.button_FileChoose.Location = new System.Drawing.Point(354, 79);
             this.button_FileChoose.Name = "button_FileChoose";
             this.button_FileChoose.Size = new System.Drawing.Size(77, 23);
             this.button_FileChoose.TabIndex = 12;
@@ -112,7 +118,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(207, 30);
+            this.label1.Location = new System.Drawing.Point(207, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 1;
@@ -121,7 +127,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 59);
+            this.label3.Location = new System.Drawing.Point(18, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 10;
@@ -130,7 +136,7 @@
             // textBox_FileName
             // 
             this.textBox_FileName.Enabled = false;
-            this.textBox_FileName.Location = new System.Drawing.Point(108, 55);
+            this.textBox_FileName.Location = new System.Drawing.Point(108, 81);
             this.textBox_FileName.Multiline = true;
             this.textBox_FileName.Name = "textBox_FileName";
             this.textBox_FileName.Size = new System.Drawing.Size(241, 20);
@@ -138,7 +144,7 @@
             // 
             // textBox_BaudRate
             // 
-            this.textBox_BaudRate.Location = new System.Drawing.Point(271, 27);
+            this.textBox_BaudRate.Location = new System.Drawing.Point(273, 25);
             this.textBox_BaudRate.Multiline = true;
             this.textBox_BaudRate.Name = "textBox_BaudRate";
             this.textBox_BaudRate.Size = new System.Drawing.Size(76, 20);
@@ -153,7 +159,7 @@
             this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox8.Size = new System.Drawing.Size(148, 95);
+            this.groupBox8.Size = new System.Drawing.Size(148, 114);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Storing Type";
@@ -161,7 +167,7 @@
             // checkBox_Monitor
             // 
             this.checkBox_Monitor.AutoSize = true;
-            this.checkBox_Monitor.Location = new System.Drawing.Point(40, 68);
+            this.checkBox_Monitor.Location = new System.Drawing.Point(40, 77);
             this.checkBox_Monitor.Name = "checkBox_Monitor";
             this.checkBox_Monitor.Size = new System.Drawing.Size(61, 17);
             this.checkBox_Monitor.TabIndex = 2;
@@ -171,7 +177,7 @@
             // radioButton_Combined
             // 
             this.radioButton_Combined.AutoSize = true;
-            this.radioButton_Combined.Location = new System.Drawing.Point(20, 46);
+            this.radioButton_Combined.Location = new System.Drawing.Point(20, 55);
             this.radioButton_Combined.Name = "radioButton_Combined";
             this.radioButton_Combined.Size = new System.Drawing.Size(104, 17);
             this.radioButton_Combined.TabIndex = 1;
@@ -183,7 +189,7 @@
             // radioButton_Individual
             // 
             this.radioButton_Individual.AutoSize = true;
-            this.radioButton_Individual.Location = new System.Drawing.Point(19, 21);
+            this.radioButton_Individual.Location = new System.Drawing.Point(19, 29);
             this.radioButton_Individual.Name = "radioButton_Individual";
             this.radioButton_Individual.Size = new System.Drawing.Size(70, 17);
             this.radioButton_Individual.TabIndex = 0;
@@ -194,7 +200,7 @@
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.textBox_status);
-            this.groupBox10.Location = new System.Drawing.Point(9, 119);
+            this.groupBox10.Location = new System.Drawing.Point(10, 141);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -237,7 +243,7 @@
             // 
             this.groupBox9.Controls.Add(this.button_connect);
             this.groupBox9.Controls.Add(this.button_close);
-            this.groupBox9.Location = new System.Drawing.Point(497, 119);
+            this.groupBox9.Location = new System.Drawing.Point(498, 141);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -250,11 +256,37 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Frequency";
+            // 
+            // textBox_Frequency
+            // 
+            this.textBox_Frequency.Location = new System.Drawing.Point(108, 53);
+            this.textBox_Frequency.Multiline = true;
+            this.textBox_Frequency.Name = "textBox_Frequency";
+            this.textBox_Frequency.Size = new System.Drawing.Size(84, 20);
+            this.textBox_Frequency.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(198, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "(Sec.)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 255);
+            this.ClientSize = new System.Drawing.Size(647, 277);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox1);
@@ -296,6 +328,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox_Ports;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox_Frequency;
+        private System.Windows.Forms.Label label5;
 
     }
 }
